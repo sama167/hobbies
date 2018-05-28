@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xmlns:camel="http://camel.apache.org/schema/blueprint">
+
+    <camelContext id="camelContext" xmlns="http://camel.apache.org/schema/blueprint">
+        <packageScan>
+            <package>me.sama.camel</package>
+        </packageScan>
+    </camelContext>
+
+    <!--
+        Obtain a reference to Activiti's RuntimeService - this reference will automatically
+        be picked up by the subsequent Activiti Camel component definition
+    -->
+    <reference id="runtimeService" interface="org.activiti.engine.RuntimeService" />
+
+    <service interface="org.activiti.camel.ContextProvider">
+        <bean class="org.activiti.camel.SimpleContextProvider">
+            <argument value="SubscriptionProcess"/>
+            <argument ref="camelContext"/>
+        </bean>
+    </service>
+
+</blueprint>

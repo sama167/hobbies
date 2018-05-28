@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef"
+             xmlns:modeler="http://activiti.com/modeler" modeler:version="1.0en"
+             modeler:exportDateTime="20161023132109074" modeler:modelId="2002"
+             modeler:modelVersion="2" modeler:modelLastUpdated="1477211114281">
+    <process id="testCamelTask" name="Test Camel Task" isExecutable="true">
+
+        <documentation>Just testing a process with a Camel task</documentation>
+
+
+
+        <startEvent id="startEvent1" name="Start">
+
+            <extensionElements>
+
+                <modeler:editor-resource-id><![CDATA[startEvent1]]></modeler:editor-resource-id>
+
+            </extensionElements>
+
+        </startEvent>
+
+
+
+        <sequenceFlow id="sid-3D275FA8-FECC-4E3F-958B-9226193B4D0D" sourceRef="startEvent1" targetRef="sendMsgToCamel">
+
+            <extensionElements>
+
+                <modeler:editor-resource-id><![CDATA[sid-3D275FA8-FECC-4E3F-958B-9226193B4D0D]]></modeler:editor-resource-id>
+
+            </extensionElements>
+
+        </sequenceFlow>
+
+        <serviceTask id="sendMsgToCamel" name="Send a message to Apache Camel" activiti:type="camel">
+
+            <extensionElements>
+
+                <activiti:field name="camelContext">
+
+                    <activiti:string><![CDATA[camelContext]]></activiti:string>
+
+                </activiti:field>
+
+                <modeler:editor-resource-id><![CDATA[sid-6C07BEED-A0AE-4C0D-8A18-AE5F8DE50C61]]></modeler:editor-resource-id>
+
+            </extensionElements>
+
+        </serviceTask>
+
+        <sequenceFlow id="sid-55000554-41F4-4069-810F-07F264D639E6" sourceRef="sendMsgToCamel" targetRef="sid-19B79A92-E86E-4E51-B42C-376798EDDBA9">
+
+            <extensionElements>
+
+                <modeler:editor-resource-id><![CDATA[sid-55000554-41F4-4069-810F-07F264D639E6]]></modeler:editor-resource-id>
+
+            </extensionElements>
+
+        </sequenceFlow>
+
+        <endEvent id="sid-19B79A92-E86E-4E51-B42C-376798EDDBA9" name="End">
+
+            <extensionElements>
+
+                <modeler:editor-resource-id><![CDATA[sid-19B79A92-E86E-4E51-B42C-376798EDDBA9]]></modeler:editor-resource-id>
+
+            </extensionElements>
+
+        </endEvent>
+
+    </process>
+
+    <bpmndi:BPMNDiagram id="BPMNDiagram_testCamelTask">
+
+        <bpmndi:BPMNPlane bpmnElement="testCamelTask" id="BPMNPlane_testCamelTask">
+
+            <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+
+                <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"/>
+
+            </bpmndi:BPMNShape>
+
+            <bpmndi:BPMNShape bpmnElement="sendMsgToCamel" id="BPMNShape_sendMsgToCamel">
+
+                <omgdc:Bounds height="80.0" width="100.36219727999998" x="240.0" y="138.0"/>
+
+            </bpmndi:BPMNShape>
+
+            <bpmndi:BPMNShape bpmnElement="sid-19B79A92-E86E-4E51-B42C-376798EDDBA9" id="BPMNShape_sid-19B79A92-E86E-4E51-B42C-376798EDDBA9">
+
+                <omgdc:Bounds height="28.0" width="28.0" x="450.0" y="164.0"/>
+
+            </bpmndi:BPMNShape>
+
+            <bpmndi:BPMNEdge bpmnElement="sid-3D275FA8-FECC-4E3F-958B-9226193B4D0D" id="BPMNEdge_sid-3D275FA8-FECC-4E3F-958B-9226193B4D0D">
+
+                <omgdi:waypoint x="130.0" y="178.0"/>
+
+                <omgdi:waypoint x="240.0" y="178.0"/>
+
+            </bpmndi:BPMNEdge>
+
+            <bpmndi:BPMNEdge bpmnElement="sid-55000554-41F4-4069-810F-07F264D639E6" id="BPMNEdge_sid-55000554-41F4-4069-810F-07F264D639E6">
+
+                <omgdi:waypoint x="340.36219728" y="178.0"/>
+
+                <omgdi:waypoint x="449.1306593325" y="178.0"/>
+
+            </bpmndi:BPMNEdge>
+
+        </bpmndi:BPMNPlane>
+
+    </bpmndi:BPMNDiagram>
+
+</definitions>
